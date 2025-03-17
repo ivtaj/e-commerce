@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero__carrusel">
+            <div class="hero__banner">50% de descuento</div>
+            <div class="hero__banner">Envío gratis</div>
+            <div class="hero__banner">Nuevas llegadas</div>
+        </div>
+    </section>
+    <div class="filtros">
+        <input type="checkbox" id="toggle-filtros" class="filtros__checkbox">
+        <label for="toggle-filtros" class="filtros__boton">Filtros</label>
+        <div class="filtros__panel">
+            <!-- Contenido de los filtros -->
+        </div>
+    </div>
+    <div class="productos-grid">
+        <div class="producto">
+            <img src="recursos/descarga.jpg" alt="Nombre del Producto" class="producto__imagen">
+            <h2 class="producto__nombre">Aspiradora</h2>
+            <p class="producto__precio precio--oferta">$99.99</p>
+            <div class="producto__variantes">
+                <span class="variante">Rojo</span>
+                <span class="variante">Azul</span>
+                <span class="variante">Verde</span>
+            </div>
+            <button class="producto__boton">Añadir al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="recursos/OIP.jpg" alt="Nombre del Producto" class="producto__imagen">
+            <h2 class="producto__nombre">Aspiradora</h2>
+            <p class="producto__precio precio--oferta">$99.99</p>
+            <button class="producto__boton">Añadir al carrito</button>
+        </div>
+    </div>
+    <input type="checkbox" id="toggle-carrito" class="carrito__checkbox">
+    <label for="toggle-carrito" class="carrito__boton-abrir">Abrir Carrito</label>
+    <div class="carrito">
+        <label for="toggle-carrito" class="carrito__boton-cerrar">Cerrar</label>
+        <h2>Carrito de Compras</h2>
+        <ul class="carrito__contenido">
+        </ul>
+    </div>
+    <nav id="mega-menu">
+        <ul>
+            <li><a href="#">Electrodomésticos</a></li>
+            <li><a href="#">Moda</a></li>
+            <li><a href="#">Tecnología</a></li>
+            <li><a href="#" category="nuevo">Nuevo</a></li>
+        </ul>
+    </nav>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

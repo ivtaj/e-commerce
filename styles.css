@@ -1,0 +1,249 @@
+/* Variables CSS */
+:root {
+    --primario: #ff6b6b;
+    --secundario: #007bff;
+    --fondo: #f8f9fa;
+    --texto: #333;
+    --fuente-principal: 'Lato', sans-serif;
+    --fuente-secundaria: 'Montserrat', sans-serif;
+    --breakpoint-movil: 768px;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--fondo);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__carrusel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.hero__banner {
+    min-width: 100%;
+    height: 300px;
+    background-color: var(--primario);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    position: relative;
+}
+
+.hero__banner::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1rem;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filtros__checkbox {
+    display: none;
+}
+
+.filtros__boton {
+    display: none;
+    background-color: var(--secundario);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.filtros__panel {
+    display: block;
+}
+
+@media (max-width: var(--breakpoint-movil)) {
+    .filtros__boton {
+        display: block;
+    }
+
+    .filtros__panel {
+        display: none;
+    }
+
+    .filtros__checkbox:checked + .filtros__boton + .filtros__panel {
+        display: block;
+    }
+}
+
+.producto {
+    border: 1px solid #ccc;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; 
+    height: 300px; 
+    margin: 0 auto; 
+}
+
+.producto__imagen {
+    width: 100%;
+    height: 150px; 
+    transition: transform 0.3s;
+    object-fit: cover;
+}
+
+.producto:hover > .producto__imagen {
+    transform: scale(1.1);
+}
+
+.producto__nombre {
+    font-size: 1.2em; 
+    margin: 8px 0;
+    font-family: var(--fuente-secundaria);
+}
+
+.producto__precio {
+    color: var(--texto);
+    font-size: 1em; 
+}
+
+.precio--oferta {
+    color: red;
+}
+
+.producto__boton {
+    background-color: var(--primario);
+    color: white;
+    border: none;
+    padding: 8px 16px; 
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.producto__boton::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 1.5em;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.producto__boton:active::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.producto__variantes {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.variante {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1.5rem;
+    margin: 16px 0;
+}
+
+@media (min-width: var(--breakpoint-movil)) {
+    .productos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.carrito__checkbox {
+    display: none;
+}
+
+.carrito {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    padding: 16px;
+}
+
+.carrito__boton-cerrar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carrito__boton-abrir {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secundario);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carrito__checkbox:checked ~ .carrito {
+    transform: translateX(0);
+}
+
+#mega-menu {
+    background-color: var(--fondo);
+    padding: 10px;
+}
+
+#mega-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#mega-menu li {
+    position: relative;
+}
+
+#mega-menu a {
+    text-decoration: none;
+    color: var(--secundario);
+    padding: 10px;
+}
+
+#mega-menu a:hover {
+    color: #0056b3;
+}
+
+#mega-menu a[category="nuevo"] {
+    color: #dc3545;
+}
